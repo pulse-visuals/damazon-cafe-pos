@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-cream text-canopy-950 antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+html.dark body {
+  @apply bg-canopy-950 text-canopy-50;
+}
+
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+/* Scrollbars: slim + on-theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme("colors.canopy.300") transparent;
+}
+html.dark * {
+  scrollbar-color: theme("colors.canopy.700") transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: theme("colors.canopy.300"); border-radius: 8px; }
+html.dark ::-webkit-scrollbar-thumb { background: theme("colors.canopy.700"); }
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-pop { animation: pop-in 0.18s ease-out; }
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { animation: slide-up 0.22s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop, .animate-slide-up { animation: none; }
+}
