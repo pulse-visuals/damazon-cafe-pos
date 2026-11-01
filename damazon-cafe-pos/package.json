@@ -1,6 +1,7 @@
 {
   "name": "damazon-cafe-pos",
   "private": true,
+  "scripts": { "start": "echo ok" },
   "engines": {
     "node": "20.x"
   }
